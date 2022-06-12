@@ -28,8 +28,8 @@ public static void main(String[] args) {
      * 
      * Below is a demo on how to use StringBuilder.
      */
-    
-    // Declaring and initializing a StringBilder object
+     //             Typo Used To Be Here: U was forgotten in builder.
+    // Declaring and initializing a StringBuilder object
     StringBuilder builder = new StringBuilder("This is a StringBuilder");
     
     // Converting the StringBuilder object into a String

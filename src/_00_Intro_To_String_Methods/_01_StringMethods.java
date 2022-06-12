@@ -1,5 +1,6 @@
 package _00_Intro_To_String_Methods;
 
+import java.util.ArrayList;
 import java.util.Base64;
 
 /*
@@ -142,28 +143,34 @@ public class _01_StringMethods {
     // occurrence of String substring and the final occurrence
     // You can assume that substring will appear at least twice
     public static int distance(String s, String substring) {
-        
-    	return 0;
+       int first = s.indexOf(substring)+substring.length();
+       int finall = first;
+       for (int i = first; i < s.length(); i++) {
+		 finall = s.indexOf(substring,i);
+		 i = finall+substring.length();
+	}
+    	return finall-first;
     }
 
     // Return true if String s is a palindrome
     // palindromes are words or phrases are read the same forward as backward.
     // HINT: ignore/remove all punctuation and spaces in the String
     public static boolean palindrome(String s) {
-       String s2 = s;
+       String s2 = s.trim();
     	s2 = s2.toLowerCase();
-        s2 = s2.replaceAll(" ", "");
-        s2 = s2.replaceAll(".", "");
+        s2 = s2.replaceAll("\\s", "");
+        s2 = s2.replaceAll("\\.", "");
+        s2 = s2.replaceAll("\\?", "");
         s2 = s2.replaceAll(",", "");
         s2 = s2.replaceAll(":", "");
         s2 = s2.replaceAll(";", "");
         s2 = s2.replaceAll("-", "");
        String flips = "";
-       for (int i = s.length()-1; i >= 0; i--) {
-		flips += s.charAt(i);
+       for (int i = s2.length()-1; i >= 0; i--) {
+		flips += s2.charAt(i);
 	}
-       if(s2==flips) {
-    	return true;
+       if(s2.equals(flips)) {
+    	   return true;
        }
        else {
     	   return false;
